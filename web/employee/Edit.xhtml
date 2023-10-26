@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditEmployeeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditEmployeeLabel_employeeid}" for="employeeid" />
+                    <h:inputText id="employeeid" value="#{employeeController.selected.employeeid}" title="#{bundle.EditEmployeeTitle_employeeid}" required="true" requiredMessage="#{bundle.EditEmployeeRequiredMessage_employeeid}"/>
+                    <h:outputLabel value="#{bundle.EditEmployeeLabel_employeefirstname}" for="employeefirstname" />
+                    <h:inputText id="employeefirstname" value="#{employeeController.selected.employeefirstname}" title="#{bundle.EditEmployeeTitle_employeefirstname}" />
+                    <h:outputLabel value="#{bundle.EditEmployeeLabel_employeelastname}" for="employeelastname" />
+                    <h:inputText id="employeelastname" value="#{employeeController.selected.employeelastname}" title="#{bundle.EditEmployeeTitle_employeelastname}" />
+                    <h:outputLabel value="#{bundle.EditEmployeeLabel_employeephonenumber}" for="employeephonenumber" />
+                    <h:inputText id="employeephonenumber" value="#{employeeController.selected.employeephonenumber}" title="#{bundle.EditEmployeeTitle_employeephonenumber}" required = "true" validatorMessage = "The phone number lenght is wrong!">
+                                 <f:validateLength minimum = "10" maximum = "10" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditEmployeeLabel_employeeposition}" for="employeeposition" />
+                    <h:inputText id="employeeposition" value="#{employeeController.selected.employeeposition}" title="#{bundle.EditEmployeeTitle_employeeposition}" />
+                </h:panelGrid>
+                <button type ='button'>
+                    <h:commandLink style= "color: black; font-size: 25px; text-decoration: none; font-family: fantasy;" action="#{employeeController.update}" value="#{bundle.EditEmployeeSaveLink}"/>
+                </button>
+                <br />
+                <button type ='button'>
+                    <h:link style= "color: black; font-size: 25px; text-decoration: none; font-family: fantasy;" outcome="View" value="#{bundle.EditEmployeeViewLink}"/>
+                </button>
+                <br />
+                <button type ='button'>
+                    <h:commandLink style= "color: black; font-size: 25px; text-decoration: none; font-family: fantasy;" action="#{employeeController.prepareList}" value="#{bundle.EditEmployeeShowAllLink}" immediate="true"/>
+                </button>
+                <br />
+                <button type ='button'>
+                    <h:link style= "color: black; font-size: 25px; text-decoration: none; font-family: fantasy;" outcome="/index" value="#{bundle.EditEmployeeIndexLink}" />
+                </button>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

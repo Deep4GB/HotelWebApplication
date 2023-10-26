@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:body style="background-image: url(resources/img.jpg); background-size: 1600px;" >
+    </h:body>
+    <h:head>
+        <title style = "border: none">Hotel Management System</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <style>
+        </style>
+        <Center>
+            <h1 style="color: tan; border: none; font-family: fantasy; font-size:50px"> Hotel Management System</h1>
+            <h2 style="color: burlywood; border: none; font-family: fantasy; font-size: 30px"> Welcome Employee!</h2>
+            <video controls = "" width = "580px" height = "340px" autoplay="" loop="" muted="" >
+                <source src ="resources/video.mp4" type ="video/mp4"> </source>
+            </video>
+        <br />
+        <form>
+            <button type="button" onclick= "">
+                <h:link style="color: burlywood; font-size: 25px; text-decoration: none; font-family: fantasy; position:relative; background-color: transparent" outcome="/employee/List" value="View Employees"/>
+            </button>
+            <button type="button" onclick= "">
+                <h:link style="color: burlywood; font-size: 25px; text-decoration: none; font-family: fantasy; position:relative;background-color: transparent" outcome="/customer/List" value="View Customers"/>
+            </button>
+        </form>
+        <form>
+            <button type="button" onclick= "">
+                <h:link style="color: burlywood; font-size: 25px; text-decoration: none; font-family: fantasy; position:relative; background-color: transparent" outcome="/reservation/List" value="View All Reservations"/>
+            </button>
+            <button type="button" onclick= "">
+                <h:link style="color: burlywood; font-size: 25px; text-decoration: none; font-family: fantasy; position:relative;  background-color: transparent" outcome="/checkin/List" value="CheckIn detail of each customer"/>
+            </button>
+        </form>
+            <p> 
+                <a style="color: tan; text-decoration: none; border: none; font-family: fantasy; font-size:15px" href = "https://privacypolicyhotel.w3spaces.com/saved-from-Tryit-2022-04-26-e8zb5.html" target = "blank" >Privacy Policy</a>  <br></br>          
+                <a style="color: tan; text-decoration: none; border: none; font-family: fantasy; font-size:15px" href = "https://deeppatel-bio.w3spaces.com/saved-from-Tryit-2022-04-19-cciys.html" target = "blank"> Ⓒ 2022 Deep Patel. All Rights Reserved.  </a> 
+            </p>
+         </Center>
+    </h:body>
+</html>

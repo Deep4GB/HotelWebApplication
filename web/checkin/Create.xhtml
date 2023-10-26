@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCheckinTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCheckinLabel_checkinid}" for="checkinid" />
+                    <h:inputText id="checkinid" value="#{checkinController.selected.checkinid}" title="#{bundle.CreateCheckinTitle_checkinid}" required="true" requiredMessage="#{bundle.CreateCheckinRequiredMessage_checkinid}"/>
+                    <h:outputLabel value="#{bundle.CreateCheckinLabel_roomnumber}" for="roomnumber" />
+                    <h:inputText id="roomnumber" value="#{checkinController.selected.roomnumber}" title="#{bundle.CreateCheckinTitle_roomnumber}" />
+                    <h:outputLabel value="#{bundle.CreateCheckinLabel_checkindatetime}" for="checkindatetime" />
+                    <h:inputText id="checkindatetime" value="#{checkinController.selected.checkindatetime}" title="#{bundle.CreateCheckinTitle_checkindatetime}" required="true" requiredMessage="#{bundle.CreateCheckinRequiredMessage_checkindatetime}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateCheckinLabel_checkoutdatetime}" for="checkoutdatetime" />
+                    <h:inputText id="checkoutdatetime" value="#{checkinController.selected.checkoutdatetime}" title="#{bundle.CreateCheckinTitle_checkoutdatetime}" required="true" requiredMessage="#{bundle.CreateCheckinRequiredMessage_checkoutdatetime}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateCheckinLabel_additionalfees}" for="additionalfees" />
+                    <h:inputText id="additionalfees" value="#{checkinController.selected.additionalfees}" title="#{bundle.CreateCheckinTitle_additionalfees}" required="true" requiredMessage="#{bundle.CreateCheckinRequiredMessage_additionalfees}"/>
+                    <h:outputLabel value="#{bundle.CreateCheckinLabel_employeeid}" for="employeeid" />
+                    <h:selectOneMenu id="employeeid" value="#{checkinController.selected.employeeid}" title="#{bundle.CreateCheckinTitle_employeeid}" required="true" requiredMessage="#{bundle.CreateCheckinRequiredMessage_employeeid}">
+                        <f:selectItems value="#{employeeController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateCheckinLabel_reservationid}" for="reservationid" />
+                    <h:selectOneMenu id="reservationid" value="#{checkinController.selected.reservationid}" title="#{bundle.CreateCheckinTitle_reservationid}" required="true" requiredMessage="#{bundle.CreateCheckinRequiredMessage_reservationid}">
+                        <f:selectItems value="#{reservationController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <button type="button">
+                    <h:commandLink style= "color: black; font-size: 25px; text-decoration: none; font-family: fantasy;" action="#{checkinController.create}" value="#{bundle.CreateCheckinSaveLink}" />
+                </button>
+                <br />
+                <button type="button">
+                    <h:commandLink style= "color: black; font-size: 25px; text-decoration: none; font-family: fantasy;" action="#{checkinController.prepareList}" value="#{bundle.CreateCheckinShowAllLink}" immediate="true"/>
+                </button>
+                <br />
+                <button type="button">
+                    <h:link style= "color: black; font-size: 25px; text-decoration: none; font-family: fantasy;" outcome="/index" value="#{bundle.CreateCheckinIndexLink}"/>
+                </button>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

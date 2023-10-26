@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewReservationTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewReservationLabel_reservationid}"/>
+                    <h:outputText style = "color: red; font-weight: bold" value="#{reservationController.selected.reservationid}" title="#{bundle.ViewReservationTitle_reservationid}"/>
+                    <h:outputText value="#{bundle.ViewReservationLabel_bookingstartdate}"/>
+                    <h:outputText style = "color: red; font-weight: bold" value="#{reservationController.selected.bookingstartdate}" title="#{bundle.ViewReservationTitle_bookingstartdate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewReservationLabel_bookingenddate}"/>
+                    <h:outputText style = "color: red; font-weight: bold" value="#{reservationController.selected.bookingenddate}" title="#{bundle.ViewReservationTitle_bookingenddate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewReservationLabel_customerid}"/>
+                    <h:outputText style = "color: red; font-weight: bold" value="#{reservationController.selected.customerid}" title="#{bundle.ViewReservationTitle_customerid}"/>
+                </h:panelGrid>
+                <br />
+                <button type ='button'>
+                    <h:commandLink style= "color: black; font-size: 25px; text-decoration: none; font-family: fantasy;" action="#{reservationController.destroyAndView}" value="#{bundle.ViewReservationDestroyLink}"/>
+                </button>
+                <br />
+                <button type ='button'>
+                    <h:link style= "color: black; font-size: 25px; text-decoration: none; font-family: fantasy;" outcome="Edit" value="#{bundle.ViewReservationEditLink}"/>
+                </button>
+                <br />
+                <button type ='button'>
+                    <h:commandLink style= "color: black; font-size: 25px; text-decoration: none; font-family: fantasy;" action="#{reservationController.prepareCreate}" value="#{bundle.ViewReservationCreateLink}" />
+                </button>
+                <br />
+                <button type ='button'>
+                    <h:commandLink style= "color: black; font-size: 25px; text-decoration: none; font-family: fantasy;" action="#{reservationController.prepareList}" value="#{bundle.ViewReservationShowAllLink}"/>
+                </button>
+                <br />
+                <button type ='button'>
+                    <h:link style= "color: black; font-size: 25px; text-decoration: none; font-family: fantasy;" outcome="/index" value="#{bundle.ViewReservationIndexLink}"/>
+                </button>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

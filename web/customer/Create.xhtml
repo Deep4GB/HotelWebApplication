@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCustomerTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCustomerLabel_customerid}" for="customerid" />
+                    <h:inputText id="customerid" value="#{customerController.selected.customerid}" title="#{bundle.CreateCustomerTitle_customerid}" required="true" requiredMessage="#{bundle.CreateCustomerRequiredMessage_customerid}"/>
+                    <h:outputLabel value="#{bundle.CreateCustomerLabel_customerfirstname}" for="customerfirstname" />
+                    <h:inputText id="customerfirstname" value="#{customerController.selected.customerfirstname}" title="#{bundle.CreateCustomerTitle_customerfirstname}" required="true" requiredMessage="#{bundle.CreateCustomerRequiredMessage_customerfirstname}"/>
+                    <h:outputLabel value="#{bundle.CreateCustomerLabel_customerlastname}" for="customerlastname" />
+                    <h:inputText id="customerlastname" value="#{customerController.selected.customerlastname}" title="#{bundle.CreateCustomerTitle_customerlastname}" required="true" requiredMessage="#{bundle.CreateCustomerRequiredMessage_customerlastname}"/>
+                    <h:outputLabel value="#{bundle.CreateCustomerLabel_customeremail}" for="customeremail" />
+                    <h:inputText id="customeremail" value="#{customerController.selected.customeremail}" title="#{bundle.CreateCustomerTitle_customeremail}" required="true" requiredMessage="#{bundle.CreateCustomerRequiredMessage_customeremail}" validatorMessage="Email is not in correct format!">
+                                 <f:validateRegex pattern="(^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[\p{L}\p{M}\p{N}.-]*(\.[\p{L}\p{M}]{2,})$)?" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateCustomerLabel_customerstreetaddress}" for="customerstreetaddress" />
+                    <h:inputText id="customerstreetaddress" value="#{customerController.selected.customerstreetaddress}" title="#{bundle.CreateCustomerTitle_customerstreetaddress}" required="true" requiredMessage="#{bundle.CreateCustomerRequiredMessage_customerstreetaddress}"/>
+                    <h:outputLabel value="#{bundle.CreateCustomerLabel_customercity}" for="customercity" />
+                    <h:inputText id="customercity" value="#{customerController.selected.customercity}" title="#{bundle.CreateCustomerTitle_customercity}" required="true" requiredMessage="#{bundle.CreateCustomerRequiredMessage_customercity}"/>
+                    <h:outputLabel value="#{bundle.CreateCustomerLabel_customerzipcode}" for="customerzipcode" />
+                    <h:inputText id="customerzipcode" value="#{customerController.selected.customerzipcode}" title="#{bundle.CreateCustomerTitle_customerzipcode}" required="true" requiredMessage="#{bundle.CreateCustomerRequiredMessage_customerzipcode}"/>
+                    <h:outputLabel value="#{bundle.CreateCustomerLabel_customerstate}" for="customerstate" />
+                    <h:inputText id="customerstate" value="#{customerController.selected.customerstate}" title="#{bundle.CreateCustomerTitle_customerstate}" required="true" requiredMessage="#{bundle.CreateCustomerRequiredMessage_customerstate}"/>
+                </h:panelGrid>
+                <br />
+                <button type ="button">
+                    <h:commandLink style= "color: black; font-size: 25px; text-decoration: none; font-family: fantasy;" action="#{customerController.create}" value="#{bundle.CreateCustomerSaveLink}" />
+                </button>
+                <br />
+                <button type ="button">
+                    <h:commandLink style= "color: black; font-size: 25px; text-decoration: none; font-family: fantasy;" action="#{customerController.prepareList}" value="#{bundle.CreateCustomerShowAllLink}" immediate="true"/>
+                </button>
+                <br />
+                <button type ="button">
+                    <h:link style= "color: black; font-size: 25px; text-decoration: none; font-family: fantasy;" outcome="/index" value="#{bundle.CreateCustomerIndexLink}"/>
+                </button>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

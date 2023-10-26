@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewEmployeeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewEmployeeLabel_employeeid}"/>
+                    <h:outputText style = "color: red; font-weight: bold" value="#{employeeController.selected.employeeid}" title="#{bundle.ViewEmployeeTitle_employeeid}"/>
+                    <h:outputText value="#{bundle.ViewEmployeeLabel_employeefirstname}"/>
+                    <h:outputText style = "color: red; font-weight: bold" value="#{employeeController.selected.employeefirstname}" title="#{bundle.ViewEmployeeTitle_employeefirstname}"/>
+                    <h:outputText value="#{bundle.ViewEmployeeLabel_employeelastname}"/>
+                    <h:outputText style = "color: red; font-weight: bold" value="#{employeeController.selected.employeelastname}" title="#{bundle.ViewEmployeeTitle_employeelastname}"/>
+                    <h:outputText value="#{bundle.ViewEmployeeLabel_employeephonenumber}"/>
+                    <h:outputText style = "color: red; font-weight: bold" value="#{employeeController.selected.employeephonenumber}" title="#{bundle.ViewEmployeeTitle_employeephonenumber}"/>
+                    <h:outputText value="#{bundle.ViewEmployeeLabel_employeeposition}"/>
+                    <h:outputText style = "color: red; font-weight: bold" value="#{employeeController.selected.employeeposition}" title="#{bundle.ViewEmployeeTitle_employeeposition}"/>
+                </h:panelGrid>
+                <br />
+                <button type ='button'>
+                    <h:commandLink style= "color: black; font-size: 25px; text-decoration: none; font-family: fantasy;" action="#{employeeController.destroyAndView}" value="#{bundle.ViewEmployeeDestroyLink}"/>
+                </button>
+                <br />
+                <button type ='button'>
+                    <h:link style= "color: black; font-size: 25px; text-decoration: none; font-family: fantasy;" outcome="Edit" value="#{bundle.ViewEmployeeEditLink}"/>
+                </button>
+                <br />
+                <button type ='button'>
+                    <h:commandLink style= "color: black; font-size: 25px; text-decoration: none; font-family: fantasy;" action="#{employeeController.prepareCreate}" value="#{bundle.ViewEmployeeCreateLink}" />
+                </button>
+                <br />
+                <button type ='button'>
+                    <h:commandLink style= "color: black; font-size: 25px; text-decoration: none; font-family: fantasy;" action="#{employeeController.prepareList}" value="#{bundle.ViewEmployeeShowAllLink}"/>
+                </button>
+                <br />
+                <button type ='button'>
+                    <h:link style= "color: black; font-size: 25px; text-decoration: none; font-family: fantasy;" outcome="/index" value="#{bundle.ViewEmployeeIndexLink}"/>
+                </button>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
